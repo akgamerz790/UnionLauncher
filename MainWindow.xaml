@@ -11,32 +11,56 @@
 
     <Grid>
         <!-- Minecraft Logo -->
-        <Image
-            Source="Assets/MinecraftLogo.png"
-            Width="520"
-            Height="186"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Top"
-            Margin="0,50,0,0"
-            Stretch="Uniform"
-            RenderTransformOrigin="0.5,0.5">
-
+        <Image Source="Assets/MinecraftLogo.png"
+               Width="520"
+               Height="186"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0,50,0,0"
+               Stretch="Uniform"
+               RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
-                <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                <ScaleTransform ScaleX="1.18" ScaleY="1.18"/>
             </Image.RenderTransform>
         </Image>
 
         <!-- Creeper Face -->
         <Image Source="Assets/GraphicsLogo.png"
-       Width="450" Height="450"
-       HorizontalAlignment="Center"
-       VerticalAlignment="Top"
-       Margin="0,198,0,0"
-       Stretch="Fill"
-       RenderOptions.BitmapScalingMode="NearestNeighbor"
-       SnapsToDevicePixels="True"
-       UseLayoutRounding="True"/>
+               Width="384" Height="384"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0,210,0,0"
+               Stretch="Fill"
+               RenderOptions.BitmapScalingMode="NearestNeighbor"
+               SnapsToDevicePixels="True"
+               UseLayoutRounding="True"/>
 
-
+        <!-- Compact Loading Text - Right Side -->
+        <Border HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,2,15"
+                Width="90"
+                Height="40"
+                CornerRadius="5">
+            <TextBlock x:Name="LoadingTextBlock"
+                       Text="Loading"
+                       Foreground="White"
+                       FontSize="15"
+                       FontFamily="Segoe UI"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextTrimming="CharacterEllipsis">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                From="0.3" To="1.0" Duration="0:0:1.5" AutoReverse="True"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </Border>
     </Grid>
 </Window>
